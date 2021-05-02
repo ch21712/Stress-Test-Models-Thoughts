@@ -1,0 +1,27 @@
+
+<table style="text-align:center"><tr><td colspan="7" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td colspan="6"><em>Dependent variable:</em></td></tr>
+<tr><td></td><td colspan="6" style="border-bottom: 1px solid black"></td></tr>
+<tr><td style="text-align:left"></td><td>Credit Card GCO Rate - All</td><td>------ GCO Rate - Top 100</td><td>------ GCO Rate - Not Top 100</td><td>Other Consumer Loan GCO Rate - All</td><td>------ GCO Rate - Top 100</td><td>------ GCO Rate - Not Top 100</td></tr>
+<tr><td style="text-align:left"></td><td>(1)</td><td>(2)</td><td>(3)</td><td>(4)</td><td>(5)</td><td>(6)</td></tr>
+<tr><td colspan="7" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Intercept</td><td>1.150<sup>**</sup></td><td>0.963<sup>*</sup></td><td>3.670<sup>***</sup></td><td>0.317<sup>*</sup></td><td>0.381<sup>*</sup></td><td>0.521<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.135, 2.164)</td><td>(-0.020, 1.946)</td><td>(2.445, 4.895)</td><td>(-0.035, 0.670)</td><td>(-0.002, 0.763)</td><td>(0.374, 0.667)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td style="text-align:left">Unemp.Rate</td><td>0.235<sup>**</sup></td><td>0.290<sup>***</sup></td><td>-0.254<sup>**</sup></td><td>0.084<sup>**</sup></td><td>0.087<sup>**</sup></td><td>0.008</td></tr>
+<tr><td style="text-align:left"></td><td>(0.053, 0.417)</td><td>(0.113, 0.466)</td><td>(-0.474, -0.035)</td><td>(0.020, 0.147)</td><td>(0.018, 0.155)</td><td>(-0.018, 0.034)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td style="text-align:left">Slope ycurve</td><td>0.404<sup>***</sup></td><td>0.430<sup>***</sup></td><td>0.374<sup>**</sup></td><td>0.054</td><td>0.072</td><td>0.039<sup>*</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.128, 0.679)</td><td>(0.162, 0.697)</td><td>(0.041, 0.707)</td><td>(-0.042, 0.150)</td><td>(-0.032, 0.176)</td><td>(-0.001, 0.079)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td style="text-align:left">DJI.Price.Momentum</td><td>0.011</td><td>0.009</td><td>0.013</td><td>-0.007<sup>**</sup></td><td>-0.008<sup>**</sup></td><td>-0.002</td></tr>
+<tr><td style="text-align:left"></td><td>(-0.007, 0.029)</td><td>(-0.008, 0.027)</td><td>(-0.009, 0.035)</td><td>(-0.013, -0.001)</td><td>(-0.015, -0.001)</td><td>(-0.005, 0.0005)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td style="text-align:left">VIX</td><td>0.049<sup>***</sup></td><td>0.041<sup>***</sup></td><td>0.092<sup>***</sup></td><td>0.012<sup>**</sup></td><td>0.012<sup>**</sup></td><td>0.007<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.024, 0.075)</td><td>(0.017, 0.066)</td><td>(0.062, 0.123)</td><td>(0.003, 0.020)</td><td>(0.002, 0.021)</td><td>(0.003, 0.010)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td colspan="7" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Observations</td><td>120</td><td>120</td><td>120</td><td>120</td><td>120</td><td>120</td></tr>
+<tr><td style="text-align:left">R<sup>2</sup></td><td>0.356</td><td>0.398</td><td>0.272</td><td>0.316</td><td>0.314</td><td>0.283</td></tr>
+<tr><td style="text-align:left">Adjusted R<sup>2</sup></td><td>0.334</td><td>0.377</td><td>0.246</td><td>0.292</td><td>0.290</td><td>0.258</td></tr>
+<tr><td style="text-align:left">Residual Std. Error (df = 115)</td><td>1.338</td><td>1.297</td><td>1.616</td><td>0.465</td><td>0.504</td><td>0.194</td></tr>
+<tr><td style="text-align:left">F Statistic (df = 4; 115)</td><td>15.905<sup>***</sup></td><td>18.976<sup>***</sup></td><td>10.727<sup>***</sup></td><td>13.277<sup>***</sup></td><td>13.141<sup>***</sup></td><td>11.332<sup>***</sup></td></tr>
+<tr><td colspan="7" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td colspan="6" style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
+</table>

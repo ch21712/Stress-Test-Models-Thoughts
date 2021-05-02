@@ -1,0 +1,8 @@
+name: "Validator View of Stress Test Models and Room For Improvement"
+navbar:
+  title: "Stress Test Models"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "About"
+      href: about.html

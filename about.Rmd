@@ -1,0 +1,11 @@
+---
+title: "About This Website"
+---
+
+<!-- # More about this website -->
+
+This site intends to help raise awareness about stress test models at financial institutions primarily with a detailed example. I build an integrated suite of balance sheet variable models with macroeconomic variables using an insightful, carefully-researched approach. These models are simple and interpretable and can elicit further discussion and debate with a nontechnical audience for enhanced risk awareness.  Regulatory models and model risk management provides a key safeguard in ensuring banks understand their risks and the risks they pose to the global financial system. Banks are systemically important and highly regulated institutions because the impact of their mistakes ripples much further than their own shores. It is through a heightened risk awareness that both financial institutions and regulatory agencies maintain a productive private-public partnership and serve the  public at-large. My hope is that these models are leveraged to their full potential to help inform or even steer business strategy and risk-management.
+
+# About the Author
+
+C.R. Mang is currently a Model Validation Analyst at Pacific Western Bank. He has over ten (10) years of experience conducting research on global financial markets, focusing on how central bank policy shapes markets through the *expectations channel* of asset prices. He has 6 years of experience in model validation conducting industry research and analysis at USAA and Pacific Western Bank. For more on his body of work, please visit: [https://sites.google.com/site/chanrmang/home](https://sites.google.com/site/chanrmang/home)

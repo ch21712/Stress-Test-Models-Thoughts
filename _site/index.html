@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="C.R. Mang" />
+
+<meta name="date" content="2021-05-02" />
+
+<title>Some Thoughts</title>
+
+<script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Stress Test Models</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Some Thoughts</h1>
+<h4 class="author">C.R. Mang</h4>
+<h4 class="date">May 2, 2021</h4>
+
+</div>
+
+
+<div id="dfastccar-stress-test-models" class="section level1 tabset tabset-dropdown" number="1">
+<h1><span class="header-section-number">1</span> DFAST/CCAR Stress Test Models</h1>
+<div id="my-thoughts---summary" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> My Thoughts - Summary</h2>
+<p>In my 6 years of experience validating econometric stress testing models, here are some of my key takeaways:</p>
+<ol style="list-style-type: decimal">
+<li>Statistical models of balance sheet variables (e.g. loan growth rates, deposit growth, loan losses) reasonably reflect stressful conditions of a typical recession (high unemployment; declining and negative GDP growth) in terms of capturing the peaks but based on the models I have validated, often do not capture the persistence of a downturn. This is especially relevant in an environment where the duration of the downturn is highly uncertain, much like the coronavirus-induced recessionary conditions.</li>
+<li>Institutions that utilize peer analysis leverage useful contextual information that improves upon the quantitative estimates. Companies like USAA use credit card loss data and PacWest use core deposit and loan growth data to build a proxy for what the risk-profile of their institution <em>will be</em> which is proactive and forward-looking <em>by design</em>; this is generally a strong feature of stress testing models that should be highly encouraged.<br />
+</li>
+<li>Models that reach statistical modalities of success are useful as a first-approximation. However, without broader meta-knowledge (i.e. historical/institutional context and/or theoretical underpinnings where testable predictions can be generated), the models are almost certainly doomed to fail because no two recessions are alike. Use of industry data in model development efforts can often provide this additional support but more generally, there needs to be stronger evidence provided by academic or industry relevant research.</li>
+<li>The utilization of both longer time-series and cross-sectional information, where available (through a combination of peer analysis and longer history industry data), holds the most promise in terms of identifying causal macroeconomic forces driving bank balance sheet variables through recessions. To date and to my knowledge, these models are not yet the industry standard.</li>
+<li>Stress tests and the models used to generate them <em>can be incredibly insightful</em> for risk management, depending on the key product lines of each financial institution. For instance, banks with a large portfolio of commercial real estate holdings can use stress test models to gauge the size of their loan losses in a severe recession and use that insight to manage the risk. This is particularly relevant in America today due to a secular shift in demand from commercial to residential real estate brought forth by the normalization of remote work arrangements and an increasingly digitized economy.</li>
+</ol>
+<p><strong>In summary, these points are pertinent in 2021 where stagflationary forces are present<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</strong></p>
+</div>
+<div id="stress-testing-models-a-background" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Stress Testing Models: A Background</h2>
+<p>As part of the Federal Reserve, OCC and FDIC’s efforts to provide more effective regulatory oversight of financial institutions, stress testing ‘as an ongoing risk management practice that supports banking organizations’ forward-looking assessment of risk’ has become a priority. Despite the push to improve proactive risk management efforts at banking organizations, it is not immediately clear how effective these efforts really are, especially because the stressed events are typically rare in nature and can seem more abstract than real. To make matters worse, there are a wide swath of approaches that can go into the development of useful statistical models, making it difficult to assess the reasonability and reliability of their model outputs through comparisons between models. If the efforts of federal regulatory agencies are fruitful in enabling financial institutions the ability to better quantify their risk exposures to macroeconomic events, it is important to understand the degree of empirical evidence required to lend greater confidence to the modeled statistical relation. There are interesting parallels and connections between broader risk management topics, namely market and model risk that are worth highlighting as well.</p>
+<p>The goal of stress testing is to assess the minimum capital and liquidity a financial institution requires to support its business (i.e. risk taking) activities. Stress testing asks, ‘what is the institution’s resilience to stressful financial and economic conditions?’ One of the prominent stresses that banks focus on is the sensitivity that their balance sheet items have with respect to deterioration in economic conditions typically seen during recessions.</p>
+<p>To quantify their macroeconomic sensitivity, banks build econometric models that measure the projected response of balance sheet variables such as loans deposit related items in hypothetical scenarios where the US economy experiences a stressful episode such as the most recent 2007-2009 Global Financial Crisis. These time-series econometric models often associate bank variables to changes in the unemployment rate, real GDP growth, and house prices. While the exercise and model building process may seem straightforward, practical issues such as a scarcity of actual data coupled with complications related to internal policy changes at the bank not to mention mergers and acquisitions can distort any meaningful relationships that historical data are willing to reveal. Another challenge of designing a useful stress testing model is that not only should the captured sensitivities be sufficiently large, the overall model results should also be within the realm of possibility. The scarcity of relevant data makes this a challenging thing to even declare especially if financial institutions evolve and alter their risk profile over time.</p>
+<p>While it is certainly true that banks are exposed to risks that are unique, the emphasis I highlight here is the <em>common, systematic macroeconomic risk factors</em> that can be found in three specific bank variables:</p>
+<ol style="list-style-type: decimal">
+<li>core deposits,</li>
+<li>loan balances,</li>
+<li>loan losses (gross and net of recoveries).</li>
+</ol>
+<p>Because these variables are non-stationary (contain a trend), I specifically examine their quarterly annualized growth rates and build econometric models using macroeconomic information found in key aggregate prices, rates and quantities. The aim of doing so is twofold: One, while it is useful to adequately capture systematic as well bank-specific vulnerabilities in stress tests, <strong>it is not possible to do so without internal information and considerable effort going into disentangling the two forces</strong>. Thus, it is impossible for me to so without additional information. Two, despite the limitations, publicly available information coupled with keen observations on the underlying dynamic environment and the choices faced by bank customers can help shed light on the broader shifts found in the macroeconomy. <em>If these insights prove useful, hopefully these highlighted macroeconomic stories help us improve macro-prudential supervision as it highlights common risks across banks that may have been underemphasized or unnoticed before.</em></p>
+</div>
+<div id="core-deposits-at-financial-institutions" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Core Deposits at Financial Institutions</h2>
+<p>Cash on hand can be allocated into several avenues. Individuals can safely store money in several places. One is a relatively liquid money market account that can be used to facilitate ordinary transactions. A less liquid, higher yielding account type is another option. This deposit account type has more restrictions about the number of transactions that can be carried out, generally offering a greater return in exchange for less liquidity to the account holder. Alternatively, individuals can pivot their cash into riskier assets such as equities or long duration bonds. These riskier securities presumably offer a greater return for the greater risk, although the degree of upside can vary over time and across business cycles. The broad set of options available to the deposit account holder should be considered, especially if any reliable statistical relationships are to be established.
+The trade-off between putting cash into a deposit account or into a riskier asset such as stock is evident in not only in historical bond-equity correlations but also in case studies on deposit accounts and how they vary over time. For instance, the decline in core deposits (negative growth rates) experienced from 1994-1996 by regional financial institutions was well-understood and partly attributed to the stock market boom of the time<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>. Strategic shifts in the banking industry also tend to vary with the performance of nonretail banking and financial market activities, likely a key factor in changes to core deposit balances and growth rates<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>. Table 1 below illustrates the role that household composition shifts play in the dynamics of deposits.</p>
+<!-- | Variable | 1985 | 1990 | 1995 | 2000 | -->
+<!-- | :- | :-: | :-: | :-: | -: | -->
+<!-- #  1985    1990    1995    2000 -->
+<!-- | Deposits |   31.3 |  25.4    | 16.2  | 12.8 | -->
+<!-- | Money Market Mutual Funds |  2.6 | 3.2   | 2.5   | 3.6 | -->
+<!-- | Debt Securities |    11.6    | 13.7  | 11.0  | 7.8 | -->
+<!-- | Equity Securities |  14.4 |  15.7 |  23.7 |  25.3 | -->
+<!-- | Mutual Fund Shares | 2.7 |   4.0 |   6.6 | 11.1 | -->
+<!-- | Life Insurance, Pensions, Trusts |   37.3    | 38.0  | 39.9  | 39.5 | -->
+<table>
+<thead>
+<tr class="header">
+<th align="left">Variable</th>
+<th align="center">1985</th>
+<th align="center">1990</th>
+<th align="center">1995</th>
+<th align="center">2000</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Deposits</td>
+<td align="center">31.3</td>
+<td align="center">25.4</td>
+<td align="center">16.2</td>
+<td align="center">12.8</td>
+</tr>
+<tr class="even">
+<td align="left">Money Market Mutual Funds</td>
+<td align="center">2.6</td>
+<td align="center">3.2</td>
+<td align="center">2.5</td>
+<td align="center">3.6</td>
+</tr>
+<tr class="odd">
+<td align="left">Debt Securities</td>
+<td align="center">11.6</td>
+<td align="center">13.7</td>
+<td align="center">11.0</td>
+<td align="center">7.8</td>
+</tr>
+<tr class="even">
+<td align="left">Equity Securities</td>
+<td align="center">14.4</td>
+<td align="center">15.7</td>
+<td align="center">23.7</td>
+<td align="center">25.3</td>
+</tr>
+<tr class="odd">
+<td align="left">Mutual Fund Shares</td>
+<td align="center">2.7</td>
+<td align="center">4.0</td>
+<td align="center">6.6</td>
+<td align="center">11.1</td>
+</tr>
+<tr class="even">
+<td align="left">Life Insurance, Pensions, Trusts</td>
+<td align="center">37.3</td>
+<td align="center">38.0</td>
+<td align="center">39.9</td>
+<td align="center">39.5</td>
+</tr>
+</tbody>
+</table>
+<p>[Table 1: Composition of US Household Financial Assets 1985-2000]</p>
+<p>This case study could be generalized into other market cycles by the following line of logic. As households continually evaluate the relative yield of their assets, and as their risk perceptions change over time, they make conscious choices that amount to ‘chasing higher yield’ in other investment opportunities. Hence, we expect a negative correlation between deposit growth rates and stock market returns (more precisely, equity price momentum if we consider longer holding periods). The decline is then viewed as the result of a household balance sheet composition effect where cash on hand was re-allocated to what was perceived by households to be better use of their assets. Further, the relative yield between Treasury rates and the deposit rates at community banks were negative coinciding with the decline in core deposits from 1994-1996 as seen in Figure <a href="#fig:yieldsp-treas">1.1</a></p>
+<div class="figure"><span id="fig:yieldsp-treas"></span>
+<img src="images/YieldSpreads_bank.png" alt="Yield Spreads between Treasuries and Deposit Accounts" width="50%" />
+<p class="caption">
+Figure 1.1: Yield Spreads between Treasuries and Deposit Accounts
+</p>
+</div>
+<!-- Source: Flow of Funds Accounts of the United States, Board of Governors of the Federal Reserve System -->
+<!-- Figure : Yield Spreads between Treasuries and Deposit Accounts -->
+<p>Source: Bank Reports of Condition and Income and U.S. Department of the Treasury</p>
+<p>On the other hand, we need to identify the source of variation in the rate of return for deposit accounts that offers the benchmark investment opportunity in core deposits. The most natural candidate is the short-term Treasury rate in which most deposit rates are anchored. The dynamic can be gleaned from the perspective of the deposit account holder. In normal times when interest rates are positive and rising, holding all else constant, individuals may choose to hold more cash in deposit accounts to earn a rising, risk-free return. The logic underlying the decision-making individual looking to make productive use of its cash on hand is to increase its deposit account balance as rates rise. Therefore, we expect a positive correlation between deposit growth rates and short-term Treasury yields.</p>
+</div>
+<div id="retail-banking-industry-dynamics" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> Retail Banking Industry Dynamics</h2>
+<p>In addition to secular shifts in the balance sheet composition of US households, predictable shifts in retail banking industry dynamics have also taken place that contribute to how deposit balances vary over time. One documented phenomenon is the increased prioritization of retail banking by large US banking institutions as a result of deregulation in the 1990s and technological advances that have made establishing nationwide branch networks<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>. One of the primary retail banking activities pertain to deposit taking that shows up on the liability side of a bank’s balance sheet. Retail deposits provide a source of low-cost funding that can be used to fund other revenue generating activities through various loan product offerings. Studies have shown that retail banking activity declined in the late 1990s but has substantially increased after 1999.</p>
+<div id="deposit-share-and-macroeconomic-factors" class="section level3" number="1.4.1">
+<h3><span class="header-section-number">1.4.1</span> Deposit Share and Macroeconomic Factors</h3>
+<p>Strategic shifts in retail banking industry dynamics can also be linked to the interest rate environment. While the degree in which retail banking activities have grown differ depending on the size of the financial institution, with large banking institutions leading the resurgence since 1999, both microeconomic and macroeconomic forces can explain the changes experienced by retail banks generally. In terms of macroeconomic factors, there is a clear association between deposit shares and the steepness of the yield curve, a general proxy for the profitability of bank loan products. The positive correlation we see in the data is directly tied to the activities of banks who seek out relatively low-cost retail deposits to fund longer term retail loans using the term premium on interest rates in which they are in prime position to benefit from.</p>
+<p>In relation to deposit balances, the increased prioritization of deposit taking by retail banks during episodes of large yield spreads coincides with the time immediately after large stock price declines. Further, deposit account balances begin to increase prior to stock price declines when the relative yield between the riskless deposit rates and returns from equity investments start to narrow as short-rates increase.</p>
+<div class="figure"><span id="fig:depshare-yieldcurve"></span>
+<img src="images/DepositShare_YieldCurve.png" alt="Deposit Share and Macroeconomic Factors Sources: Federal Financial Institutions Examination Council, Reports on Condition and Income: Federal Reserve Statistical Release H.15; Note: Retail deposit share is de-trended using a quadratic time trend" width="50%" />
+<p class="caption">
+Figure 1.2: Deposit Share and Macroeconomic Factors Sources: Federal Financial Institutions Examination Council, Reports on Condition and Income: Federal Reserve Statistical Release H.15; Note: Retail deposit share is de-trended using a quadratic time trend
+</p>
+</div>
+<!-- Figure : Deposit Share and Macroeconomic Factors -->
+<!-- Sources: Federal Financial Institutions Examination Council, Reports on Condition and Income: Federal Reserve Statistical Release H.15;  -->
+<!-- Note: Retail deposit share is de-trended using a quadratic time trend  -->
+<p>Deposit growth dynamics continually evolves. Investors alter their balances depending on which stage of the market cycle the broad US economy is on; deposit balances will decrease (growth rates will turn negative) as stock prices gather momentum near the trough of the business cycle during the early phase of an economic expansion. On the flipside, deposit balances increase when either stock prices begin to increase at a slower pace or when yields on deposit accounts become more attractive relative to stocks, or some combination thereof. During episodes of large stock price declines that occur precisely when the VIX index spikes, the alternative investments narrative predicts an accelerated rise in core deposits. In this light, the VIX index acts as a multiplier on core deposit growth increases that provides useful information to both test the empirical relationships found in the data and enhance a stress testing model to generate a reasonable but larger degree of macroeconomic sensitivity.</p>
+</div>
+<div id="loan-share-and-macroeconomic-factors" class="section level3" number="1.4.2">
+<h3><span class="header-section-number">1.4.2</span> Loan Share and Macroeconomic Factors</h3>
+<p>Similar to deposit shares, loan share as a percentage of total loans can also be linked to the yield curve, lending credence to the cyclical nature of banking activity. In contrast to the deposit share, retail loan share continues to rise 2-3 years after the yield curve peaks and then cycles downward. One can posit a relationship between lending activity and profitability of doing so that can inform a model development effort.</p>
+<div class="figure"><span id="fig:loanshare-yieldcurve"></span>
+<img src="images/LoanShare_YieldCurve.png" alt="Loan Share and Macroeconomic Factors Sources: Federal Financial Institutions Examination Council, Reports on Condition and Income: Federal Reserve Statistical Release H.15; Note: Retail deposit share is de-trended using a quadratic time trend" width="50%" />
+<p class="caption">
+Figure 1.3: Loan Share and Macroeconomic Factors Sources: Federal Financial Institutions Examination Council, Reports on Condition and Income: Federal Reserve Statistical Release H.15; Note: Retail deposit share is de-trended using a quadratic time trend
+</p>
+</div>
+</div>
+</div>
+<div id="alternative-investment-hypothesis" class="section level2" number="1.5">
+<h2><span class="header-section-number">1.5</span> Alternative Investment Hypothesis</h2>
+<p>I propose an <strong>alternative investment (AI) interpretation</strong> of the data centered on options that deposit holders can choose from, namely risk-free deposit accounts and riskier equity investments. Through this lens, several macroeconomic variables are given priority in stress test model development:</p>
+<ol style="list-style-type: decimal">
+<li>Slope of the yield curve</li>
+<li>Stock price (DJIA or CRE price) momentum (YoY % Growth)</li>
+<li>VIX index</li>
+</ol>
+<p>These asset prices are both forward-looking in nature and publicly available signals that economic actors can use to gauge <em>expectations about future economic activity</em>, namely the relative yields of risky and ‘riskless’ assets.</p>
+<p>There are some additional points related to the hypothesis. The value of the VIX index is that accounts for large price swings that occur during a market sell-off. To tie it to alternative investments, I posit that investors are pulling their money from risky assets and depositing them into money market or savings accounts.</p>
+<p>The spike in the yield curve and the VIX occurs for different reasons but may be driven by similar forces. The VIX spikes because the difference in the implied volatility between CBOE traded call and put options increases as stock price declines accelerate. In addition, the slope of the yield curve steepens due to broad recessionary conditions associated with not only stock market price declines but higher expected inflation and elevated borrowing costs that comes along with heightened economic uncertainty. Both could spike due to a global event such as a pandemic and may be weakened or further exacerbated by how monetary and fiscal policymakers respond, much like their response in March 2020 of cutting short-term interest rates and quickly passing a bailout stimulus, among other policy responses.</p>
+<div id="ai-hypothesis-and-core-deposit-growth" class="section level3" number="1.5.1">
+<h3><span class="header-section-number">1.5.1</span> AI Hypothesis and Core Deposit Growth</h3>
+<p>When viewed in light of the alternative investment hypothesis, core deposits are predicted to have several stylized stochastic features. Here are the key points:</p>
+<ol style="list-style-type: decimal">
+<li><p>Core deposit balances are expected to decline when there is positive stock price momentum that is expected to persist, however it is expected to grow if stock prices decline and/or yields on deposit rates begin to effectively offer a viable alternative, less risky investment opportunity as short-term interest rates and an economic expansion matures.</p></li>
+<li><p>Once the economic expansion reaches its peak and begins to slow, usually when there is a stock price slowdown or decline, core deposits will start to increase. Its rate of increase is linked to how suddenly market prices change and can be proxied by the VIX index.</p></li>
+<li><p>We can posit a positive relationship between short-term interest rates and core deposits (as long as banks pass those higher rates to deposit holders, with some lag of course); however, the Federal Reserve can confound the relation between short-term interest rates and deposit growth rates by cutting rates to provide stimulative economic conditions, especially if stock prices decline precipitously <a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>.</p></li>
+</ol>
+<p>Along this line of logic, we expect core deposit growth rates to increase during a ‘flight-to-quality’ where investors seek safety from market turbulence. These broad features of the data are expected even if we account for evolving industry dynamics of retail banking, namely the agglomeration of large branch networks and the secular changes in the composition of household balance sheets experienced over the last forty (40) years that has seen a shift from core deposit holdings to equities and mutual funds.</p>
+<p>In summary, we expect core deposit growth rates to be negatively related to stock price momentum and positively related to</p>
+<ul>
+<li><ol style="list-style-type: lower-alpha">
+<li>short-term interest rates (and by extension deposit rates offered to customers),</li>
+</ol></li>
+<li><ol start="2" style="list-style-type: lower-alpha">
+<li>the slope of the yield curve and</li>
+</ol></li>
+<li><ol start="3" style="list-style-type: lower-alpha">
+<li>the VIX index.</li>
+</ol></li>
+</ul>
+<p>While the model captures these salient features of the data, due to the presence of confounding factors, the relation between short-rates and core deposits is only weakly positive.</p>
+<p>In the final model iteration I highlight in Figure <a href="#fig:scenario-proj-CDG">2.3</a>, I omit the 3-month Treasury rate with full knowledge of the caveats discussed here.</p>
+</div>
+</div>
+<div id="credit-risk-default-and-loan-losses" class="section level2" number="1.6">
+<h2><span class="header-section-number">1.6</span> Credit Risk: Default and Loan Losses</h2>
+<p>A credit risk event can be complex in nature as there are telltale signs that a borrower will ultimately be unable to repay. Delinquencies sometimes are cleared but for some, the ultimate outcome is that they are unable to pay and the bank decides to declare a loss that is to be charged off. The dynamics of defaulting and having a loss declared is therefore a two-sided affair and will depend on the <em>expectations</em> that both parties have that are often shaped by their macroeconomic environment. In addition to interest rate indicators and key asset prices and their momentum, the unemployment rate reveals key information about the magnitude and persistence of an economic cycle and has empirically been shown to track loan losses.</p>
+<!-- To show this, consider the following econometric model of commercial real estate (CRE) default rates on industry data (insert regression results and chart)  -->
+</div>
+</div>
+<div id="industry-stress-test-models" class="section level1 tabset tabset-dropdown" number="2">
+<h1><span class="header-section-number">2</span> Industry Stress Test Models</h1>
+<div id="overview-of-macroeconomic-variables" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Overview of Macroeconomic Variables</h2>
+<p>To build a macro-econometric model of bank balance sheet variables, it is essential that we understand the underlying macroeconomic data in which most models are built upon. These datasets are processed and made publicly available by the Federal Reserve and the St. Louis Federal Reserve Economic Database <a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> <a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>. A careful understanding of the data using statistical tools is useful. However, to build a robust stress testing model, the developer needs to bring additional layers of knowledge either in the form of industry relevant research I have outlined above, or some institutional knowledge that informs variable selection. Statistical significance is not sufficient for these models because of the limitations of data.
+Although there are over 18 domestic macroeconomic variables (and even more for international macro), I specifically focus on a key subset found in Figure <a href="#fig:macro-Vars">2.1</a>. I also employ the growth rate in nominal GDP and unemployment rate found in Figure <a href="#fig:macro-Vars-quantity">2.2</a> because they are useful for gauging the contemporaneous state of the macroeconomy. Included in these charts are the 2021 Federal Reserve supervisory scenarios <a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>.</p>
+<p>One of the prominent concerns of a stress testing model centers on the structural stability of the macroeconomic variables chosen to build an econometric model. The more evidence in favor of a statistically sound, econometrically stable, and highly interpretable model, the better.</p>
+<p>The benefits of industry data to assess the reliability of various highlighted econometric relationships for a stress testing model are the longer history of data available spanning multiple recessions.</p>
+<p>With that said, even with a longer history and a richer cross-section, a good developer should be keen on outlining avenues in which the model will break down. After all, models are useful simplifications that can be leveraged with the limitations in mind. A model that purports to explain everything is a boldfaced <strong>lie</strong>.</p>
+<div class="figure" style="text-align: center"><span id="fig:macro-Vars"></span>
+<img src="images/yieldspread_FedScenarios.png" alt="AI Hypothesis Macroeconomic Variables" width="50%" /><img src="images/VIX_FedScenarios.png" alt="AI Hypothesis Macroeconomic Variables" width="50%" /><img src="images/CREPM_FedScenarios.png" alt="AI Hypothesis Macroeconomic Variables" width="50%" /><img src="images/DurationEconBoom_FedScenarios.png" alt="AI Hypothesis Macroeconomic Variables" width="50%" />
+<p class="caption">
+Figure 2.1: AI Hypothesis Macroeconomic Variables
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:macro-Vars-quantity"></span>
+<img src="images/NGDPGr_FedScenarios.png" alt="AI Hypothesis Macroeconomic Variables - State of the Macroeconomy Proxies" width="50%" /><img src="images/UnempRate_FedScenarios.png" alt="AI Hypothesis Macroeconomic Variables - State of the Macroeconomy Proxies" width="50%" />
+<p class="caption">
+Figure 2.2: AI Hypothesis Macroeconomic Variables - State of the Macroeconomy Proxies
+</p>
+</div>
+</div>
+<div id="core-deposit-growth" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Core Deposit Growth</h2>
+<p>Using the <em>alternative investment hypothesis</em> as a guide for variable selection, I consider the following macroeconomic variables:</p>
+<ol style="list-style-type: decimal">
+<li>Yield spread (difference in long and short rate)</li>
+<li>VIX, a market volatility index</li>
+<li>Dow Jones Industrial Average (DJIA) <strong>or</strong> commercial real estate (CRE) price momentum (12-month YoY% growth)</li>
+<li>Short-term interest rates, namely the 3-month Treasury rate</li>
+</ol>
+<p>Notice that these variables are appropriately classified as asset prices and have been empirically linked to market participants expectations of future economic activity. Moreover, the alternative investment hypothesis is an explicit formulation of the <em>expectations effect</em> for bank balance sheet variables such as deposits, one of the monetary policy channels in which Fed policy impacts the real economy <a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a>.</p>
+<p>While it may seem straightforward that these variables be incorporataed into an econometric model, in reality the estimated model may not exactly fit into a neat narrative <em>because</em> the Federal Reserve and other real-world considerations can confound the pure, “frictionless” depiction the model is designed to capture. Given these consderations for the purpose of bulding a conservative estimate of a worst-case scenario, it may be advisable to calibrate the coefficients within the confidence range to offset any shortcomings. Doing so may seem ad-hoc and unscientific, however explicitly taking into account a behaviorally sound theory and set of institutional and/or contextual considerations will enhance a modeler’s case, lending greater credibility that the model captures the essence of the data and the developer understands its limitations.</p>
+<!--html_preserve-->
+<table style="text-align:center">
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="1" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Core Deposits Growth Rate
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Model
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Intercept
+</td>
+<td>
+-0.577
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(-1.490, 0.336)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+DJIA Price Momentum
+</td>
+<td>
+0.011
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(-0.007, 0.030)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+VIX
+</td>
+<td>
+0.075<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.045, 0.104)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Slope yield curve
+</td>
+<td>
+0.515<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.209, 0.822)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+113
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.304
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.285
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+1.440 (df = 109)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+15.870<sup>***</sup> (df = 3; 109)
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<!--html_preserve-->
+<div id="limitations" class="section level3" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Limitations</h3>
+<ol style="list-style-type: decimal">
+<li>Model is unable to capture the large deposit growth rate decline from 1995-1997 although it captures the cyclical variation in the right direction (feature of a model built to overestimate deposit growth rates since it is a liability on the bank’s balance sheet).</li>
+<li>Model is constructed using only three (3) economic recessions, casting reasonable doubt that such a relation is stable and will be expected to hold in the future.</li>
+</ol>
+</div>
+<div id="strengths" class="section level3" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Strengths</h3>
+<ol style="list-style-type: decimal">
+<li>Generates similar cyclical dynamics to historical experience, particularly the mean reversion rates.</li>
+<li>Generates spike in deposit growth rates during stressful events, consistent with historical experience.</li>
+<li>Macroeconomic story underlying the chosen predictor variables is both internally consistent and generates conceptually sound coefficient estimates.</li>
+</ol>
+<p>Under the Federal Reserve Supervisory Scenarios released in February 2021, it appears that the model is unable to generate a spike in deposit growth rates exceeding the 5% rate using the point estimates alone. Therefore, calibrating the point estimates of each the yield spread and VIX to be on the upper end of the confidence region may yield the most credible worst-case scenario estimate.</p>
+<div class="figure"><span id="fig:scenario-proj-CDG"></span>
+<img src="images/CDG.png" alt="Core Deposit Growth Rate Scenario Projection" width="75%" />
+<p class="caption">
+Figure 2.3: Core Deposit Growth Rate Scenario Projection
+</p>
+</div>
+</div>
+</div>
+<div id="loan-growth" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Loan Growth</h2>
+<p>A loan growth stress test model on industry aggregate data requires that we meet two challenges:</p>
+<ol style="list-style-type: decimal">
+<li><p>Loan growth generaly procyclical in historic data; in most recent recession, it is strongly countercyclical.</p></li>
+<li><p>Range of loan growth rates vary between -5% and 5% with 95% confidence.</p></li>
+</ol>
+<p>The most recent recession offers a wildly large <em>counterintuitive</em> loan growth rate about 15% which needs to be taken into account. Here is where understanding real-world confounding factors simplifies the analysis considerably. We know that the central bank and US government enacted a significant set of fiscal and monetary interventions in 2020 due to the COVID-19 global pandemic, clearly a confounding factor that must be carefully considered when model building. <strong>Without intervention</strong> it is still reasonable to assume loan growth rates will be negative during a recession. Thus, the modeler may decide to <em>take the loss</em> and outline the model failure in 2020 as a result of a clearly identified confounding factor outlined above.</p>
+<!-- Stochastic properties - loan growth in most recent recession appears transitory in nature; consistent with loan growth at beginning of recession, but in opposite direction -->
+<p>Another interesting contextual detail to consider is the change in lending standards by financial institutions, an <em>endogenous response to changes in expectations about future economic activity</em> that may have a strong impact on lending volumes (intuitive, plausible way that loans impacted by macroeconomic policy) <a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a></p>
+<p>To keep the model simple and only slightly more complex than the core deposit growth model, I include the nominal GDP growth rate along with the <em>alternative investment hypothesis</em> -related asset price macroeconomic variables. The estimated model details can be found below:</p>
+<!--html_preserve-->
+<table style="text-align:center">
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="1" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Industry Loan Growth Rate
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Model
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Intercept
+</td>
+<td>
+0.019<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.008, 0.030)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Nominal GDP Growth
+</td>
+<td>
+0.070<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.005, 0.136)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Slope ycurve
+</td>
+<td>
+-0.006<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(-0.009, -0.002)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+CRE Price Momentum
+</td>
+<td>
+0.058
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(-0.033, 0.149)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Slope-CRE Price Mom. interaction
+</td>
+<td>
+0.024<sup>*</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(-0.004, 0.052)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+164
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.485
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.472
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+0.017 (df = 159)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+37.362<sup>***</sup> (df = 4; 159)
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<!--html_preserve-->
+<!-- <!--html_preserve-->
+<!-- <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=Dvyr&width=670&height=475" scrolling="no" frameborder="0" style="overflow:hidden; width:670px; height:525px;" allowTransparency="true" loading="lazy"></iframe> -->
+<!-- <!--html_preserve-->
+<!-- </table> -->
+<p><br></p>
+<p>In out-of-sample scenario projections, we notice that the model can only generate a decreasing but positive growth loan growth in a stressed event (and a steady and positive growth rate in a baseline scenario). Large negative loan growth rates on the order of -5% found during the 2007-2009 recession require additional adjustment, either in the form of coefficient calibration or the inclusion of additional predictors such as changes in lending standards or some other macroeconomic information. Further, factors specific to a financial institution may be more appropriate and will depend on key product lines and bank-driven priorities. For instance, a financial institution may want to increase their consumer lending portfolio for home improvements such as solar energy capture and storage technology knowing that governments around the world are attempting to raise carbon emissions standards. If so, bank-specific internal controls can provide instrumental leverage in a stress testing model for loan growth.</p>
+<p>For aggregate industry data, the model outlined here serves the purpose of extending a model building approach that is <em>theory-driven</em>, particularly the alternative investment hypothesis and its impact on bank lending decisions, and is also instructive in dealing with real-world complications in the process of model-building.</p>
+<p>Here is a summary of the loan growth model development effort:</p>
+<ol style="list-style-type: decimal">
+<li>For peer-bank models using shorter history (call report generated from 2001-2020), a broad specification search may pick up spurious correlation between macro factors and bank balance sheet variable. To remedy these concerns, consider using industry loan growth rate to extend the data series for the purpose of variable selection and model development if a theoretical construct guiding your model is unfruitful <a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a>.</li>
+</ol>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Consider relative yields such as yield spreads - research and intuition tells us that it is strongly linked to bank profitability (Net interest income and traditional bank operations such as maturity transformation). Even without a theory/narrative, this variable makes the most sense to include in a loan growth model.</p></li>
+<li><p>The most recent recession is at odds with historical patterns - clearly a confounding policy intervention, although it appears to be transitory; coupled with (1), resulting model could be very misleading.</p></li>
+</ol>
+<div class="figure"><span id="fig:scenario-proj-LG"></span>
+<img src="images/LoanGrowth.png" alt="Loan Growth Rate Scenario Projections" width="75%" />
+<p class="caption">
+Figure 2.4: Loan Growth Rate Scenario Projections
+</p>
+</div>
+</div>
+<div id="loan-losses" class="section level2 tabset" number="2.4">
+<h2><span class="header-section-number">2.4</span> Loan Losses</h2>
+<p>Loan losses are best viewed as a collaborative effort between borrower and lender. The loss occurs when the borrower is unable to pay and the lender decides to stop trying to collect. Usually this occurs when the borrower has lost his/her job and cannot make payments and the lender expects there to be recessionary conditions in the next 12-48 months. From a macroeconomic point-of-view, the unemployment rate can shed a useful light on the depth and duration of a recession, making it a useful variable to include in a stress testing model.</p>
+<p>Expectations about future economic activity also provides useful information and can be gleaned from key asset prices. Viewed from the lens of the <em>alternative investment hypothesis</em>, commercial real estate price momentum and yield spreads can help participants gauge the durability of an economic expansion. Further, the VIX index can help reveal sharp turning points in financial market and/or macroeconomic conditions.</p>
+<p>In summary, the set of macroeconomic variables used to build a model of loan losses includes:</p>
+<ol style="list-style-type: decimal">
+<li>The unemployment rate</li>
+<li>Slope of the yield curve (difference between 10-year and 3-month interest rate)</li>
+<li>Commercial real estate price momentum (YoY % growth rate)</li>
+<li>VIX index</li>
+</ol>
+<p>Models of loan losses can also take into account recoveries that occur in reality (usually adjustments made to the gross charge-offs of loan losses at a later date). The differences in statistical regularities between gross charge-offs and net charge-offs are not very meaningful, at least for industry aggregate data. However, differences in macroeconomic sensitivity between loan losses across different product lines will vary considerably across financial institutions and depend on their risk-profile <a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a>.</p>
+<p>Loan losses will vary along the business cycle in a countercyclical fashion and can remain elevated even after the economy recovers from a recession. The magnitude of losses at the peak of the recession and the rate of mean reversion will vary depending on the product line <a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a>.</p>
+<p>For credit card and other consumer loans product line industry aggregate data, I construct a stress test model for 3 separate segments: All commercial banks, Top 100 (in terms of asset size), and Not Top 100. In all segments, the unemployment rate, slope of the yield curve, and VIX index prove to be statistically significant predictors (to varying degrees), providing empirical support for the AI hypothesis in the data. A summary of the regressions I run can be found below:</p>
+<!--html_preserve-->
+<table style="text-align:center">
+<tr>
+<td colspan="7" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="6">
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Credit Card GCO Rate - All
+</td>
+<td>
+Credit Card GCO Rate - Top 100
+</td>
+<td>
+Credit Card GCO Rate - Not Top 100
+</td>
+<td>
+Other Consumer Loan GCO Rate - All
+</td>
+<td>
+Oth. Cons. Loan GCO Rate - Top 100
+</td>
+<td>
+Oth. Cons. Loan GCO Rate - Not Top 100
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+<td>
+(3)
+</td>
+<td>
+(4)
+</td>
+<td>
+(5)
+</td>
+<td>
+(6)
+</td>
+</tr>
+<tr>
+<td colspan="7" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Intercept
+</td>
+<td>
+1.150<sup>**</sup>
+</td>
+<td>
+0.963<sup>*</sup>
+</td>
+<td>
+3.670<sup>***</sup>
+</td>
+<td>
+0.317<sup>*</sup>
+</td>
+<td>
+0.381<sup>*</sup>
+</td>
+<td>
+0.521<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.135, 2.164)
+</td>
+<td>
+(-0.020, 1.946)
+</td>
+<td>
+(2.445, 4.895)
+</td>
+<td>
+(-0.035, 0.670)
+</td>
+<td>
+(-0.002, 0.763)
+</td>
+<td>
+(0.374, 0.667)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Unemp.Rate
+</td>
+<td>
+0.235<sup>**</sup>
+</td>
+<td>
+0.290<sup>***</sup>
+</td>
+<td>
+-0.254<sup>**</sup>
+</td>
+<td>
+0.084<sup>**</sup>
+</td>
+<td>
+0.087<sup>**</sup>
+</td>
+<td>
+0.008
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.053, 0.417)
+</td>
+<td>
+(0.113, 0.466)
+</td>
+<td>
+(-0.474, -0.035)
+</td>
+<td>
+(0.020, 0.147)
+</td>
+<td>
+(0.018, 0.155)
+</td>
+<td>
+(-0.018, 0.034)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Slope ycurve
+</td>
+<td>
+0.404<sup>***</sup>
+</td>
+<td>
+0.430<sup>***</sup>
+</td>
+<td>
+0.374<sup>**</sup>
+</td>
+<td>
+0.054
+</td>
+<td>
+0.072
+</td>
+<td>
+0.039<sup>*</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.128, 0.679)
+</td>
+<td>
+(0.162, 0.697)
+</td>
+<td>
+(0.041, 0.707)
+</td>
+<td>
+(-0.042, 0.150)
+</td>
+<td>
+(-0.032, 0.176)
+</td>
+<td>
+(-0.001, 0.079)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+DJI.Price.Momentum
+</td>
+<td>
+0.011
+</td>
+<td>
+0.009
+</td>
+<td>
+0.013
+</td>
+<td>
+-0.007<sup>**</sup>
+</td>
+<td>
+-0.008<sup>**</sup>
+</td>
+<td>
+-0.002
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(-0.007, 0.029)
+</td>
+<td>
+(-0.008, 0.027)
+</td>
+<td>
+(-0.009, 0.035)
+</td>
+<td>
+(-0.013, -0.001)
+</td>
+<td>
+(-0.015, -0.001)
+</td>
+<td>
+(-0.005, 0.0005)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+VIX
+</td>
+<td>
+0.049<sup>***</sup>
+</td>
+<td>
+0.041<sup>***</sup>
+</td>
+<td>
+0.092<sup>***</sup>
+</td>
+<td>
+0.012<sup>**</sup>
+</td>
+<td>
+0.012<sup>**</sup>
+</td>
+<td>
+0.007<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.024, 0.075)
+</td>
+<td>
+(0.017, 0.066)
+</td>
+<td>
+(0.062, 0.123)
+</td>
+<td>
+(0.003, 0.020)
+</td>
+<td>
+(0.002, 0.021)
+</td>
+<td>
+(0.003, 0.010)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="7" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+120
+</td>
+<td>
+120
+</td>
+<td>
+120
+</td>
+<td>
+120
+</td>
+<td>
+120
+</td>
+<td>
+120
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.356
+</td>
+<td>
+0.398
+</td>
+<td>
+0.272
+</td>
+<td>
+0.316
+</td>
+<td>
+0.314
+</td>
+<td>
+0.283
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.334
+</td>
+<td>
+0.377
+</td>
+<td>
+0.246
+</td>
+<td>
+0.292
+</td>
+<td>
+0.290
+</td>
+<td>
+0.258
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error (df = 115)
+</td>
+<td>
+1.338
+</td>
+<td>
+1.297
+</td>
+<td>
+1.616
+</td>
+<td>
+0.465
+</td>
+<td>
+0.504
+</td>
+<td>
+0.194
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic (df = 4; 115)
+</td>
+<td>
+15.905<sup>***</sup>
+</td>
+<td>
+18.976<sup>***</sup>
+</td>
+<td>
+10.727<sup>***</sup>
+</td>
+<td>
+13.277<sup>***</sup>
+</td>
+<td>
+13.141<sup>***</sup>
+</td>
+<td>
+11.332<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td colspan="7" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="6" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<p><br>
+<!-- [^11:] The interquartile range (IQR) loan loss time-series visuals are constructed using a cross-section of financial institutions using quarterly data from Q1 2001 to Q3 2018 aggregated to annual frequency. The interpretation of the IQR range plots is the following: the boundaries of the shaded region represent the interquartile range (25th and 75th percentile). The line represents the median or 50th percentile. The peer group consists of the following institutions: American Express, JP Morgan Chase, Bank of America, Citibank, Capital One, Discover, Wells Fargo, US Bank, UnionBank, Barclays Bank, Huntington Bank, PNC Bank, TD Bank, Pacific Western Bank, and USAA Federal Savings Bank. For full disclosure, the calculation of gross charge-off rates does not carefully control for mergers and consolidation of institutions (e.g. the absorption of Washing Mutual into JP Morgan Chase is not reflected in their charge-offs). --></p>
+<!-- *Source:* FDIC Bank Financial Reports and FFIEC Call Report Data with Visualizations Powered by Microsoft Excel(R) -->
+<p>The scenario projections for credit card loans found in Figure <a href="#fig:Credit-Scenario-proj">2.10</a> and other consumer loans <a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a> found in
+Figure <a href="#fig:Oth-Cons-Loan-Scenario-proj">2.14</a> reveal a model that matches the data in terms of statistical mean reversion rates and can capture a large portion of the increase in charge-off rates. A model that is further calibrated to be at the higher end of the coefficient estimate
+confidence region should be sufficient to generate a reasonably large charge-off rate during a severe downturn.</p>
+<div id="all-loans" class="section level3" number="2.4.1">
+<h3><span class="header-section-number">2.4.1</span> All Loans</h3>
+<div class="figure"><span id="fig:GCO"></span>
+<img src="images/GCO.png" alt="Gross Charge-Offs Among Large (Select) Banks" width="75%" />
+<p class="caption">
+Figure 2.5: Gross Charge-Offs Among Large (Select) Banks
+</p>
+</div>
+<p><em>Source:</em> FDIC Bank Financial Reports and FFIEC Call Report Data with Visualizations Powered by Microsoft Excel(R)</p>
+</div>
+<div id="commercial-real-estate-loans" class="section level3" number="2.4.2">
+<h3><span class="header-section-number">2.4.2</span> Commercial Real Estate Loans</h3>
+<div class="figure"><span id="fig:CREGCO"></span>
+<img src="images/CREGCO.png" alt="CRE Charge-Offs Among Large (Select) Banks" width="75%" />
+<p class="caption">
+Figure 2.6: CRE Charge-Offs Among Large (Select) Banks
+</p>
+</div>
+<p><em>Source:</em> FDIC Bank Financial Reports and FFIEC Call Report Data with Visualizations Powered by Microsoft Excel(R)</p>
+<p>Net charge-off rates also vary in a similar manner as gross charge-off rates <a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a> although some institutions will build separate models because they detect a cyclical component in recoveries.</p>
+<div class="figure"><span id="fig:scenario-proj-NCO"></span>
+<img src="images/NCO.png" alt="Net Charge-Off Scenario Projections" width="75%" />
+<p class="caption">
+Figure 2.7: Net Charge-Off Scenario Projections
+</p>
+</div>
+<p><em>Source:</em> FDIC Bank Financial Reports and FFIEC Call Report Data with Visualizations Powered by Microsoft Excel(R)</p>
+</div>
+<div id="credit-card-loans" class="section level3" number="2.4.3">
+<h3><span class="header-section-number">2.4.3</span> Credit Card Loans</h3>
+<div class="figure"><span id="fig:CCGCO"></span>
+<img src="images/CCGCO.png" alt="Credit Card Charge-Offs Among Large (Select) Banks" width="75%" />
+<p class="caption">
+Figure 2.8: Credit Card Charge-Offs Among Large (Select) Banks
+</p>
+</div>
+<p><em>Source:</em> FDIC Bank Financial Reports and FFIEC Call Report Data with Visualizations Powered by Microsoft Excel(R)</p>
+<div class="figure"><span id="fig:CreditCardHistory"></span>
+<img src="images/CCGCO_History.png" alt="Credit Card Charge-Offs - Historical Data" width="75%" />
+<p class="caption">
+Figure 2.9: Credit Card Charge-Offs - Historical Data
+</p>
+</div>
+<p><em>Source:</em> Federal Reserve Economic Database (FRED) <a href="https://fred.stlouisfed.org/graph/?g=Dvyr">weblink</a></p>
+<div class="figure"><span id="fig:Credit-Scenario-proj"></span>
+<img src="images/CCGCO_scenarioProj.png" alt="Credit Card Charge-Off Rate Scenario Projectios - All Banks" width="75%" />
+<p class="caption">
+Figure 2.10: Credit Card Charge-Off Rate Scenario Projectios - All Banks
+</p>
+</div>
+<p><em>Source:</em> FDIC Bank Financial Reports and FFIEC Call Report Data with Visualizations Powered by Microsoft Excel(R)</p>
+<!-- <!--html_preserve-->
+<!-- <div class='embed-container'> -->
+<!-- <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=Dvyr&width=670&height=475" scrolling="no" frameborder="0" style="overflow:hidden; width:670px; height:525px;" allowTransparency="true" loading="lazy"></iframe> -->
+<!-- </div> -->
+<!-- <!--html_preserve-->
+</div>
+<div id="other-consumer-loans" class="section level3" number="2.4.4">
+<h3><span class="header-section-number">2.4.4</span> Other Consumer Loans</h3>
+<div class="figure"><span id="fig:OCLGCO"></span>
+<img src="images/OCLGCO.png" alt="Other Consumer Loan Charge-Offs Among Large (Select) Banks" width="75%" />
+<p class="caption">
+Figure 2.11: Other Consumer Loan Charge-Offs Among Large (Select) Banks
+</p>
+</div>
+<p><em>Source:</em> FDIC Bank Financial Reports and FFIEC Call Report Data with Visualizations Powered by Microsoft Excel(R)</p>
+<div class="figure"><span id="fig:OtherConsLoanHistory"></span>
+<img src="images/OCLGCO_History.png" alt="Other Consumer Loan Charge-Offs Historical Data" width="75%" />
+<p class="caption">
+Figure 2.12: Other Consumer Loan Charge-Offs Historical Data
+</p>
+</div>
+<p><em>Source:</em> Federal Reserve Economic Database (FRED) <a href="https://fred.stlouisfed.org/graph/?g=Dwm8">weblink</a></p>
+<div class="figure"><span id="fig:ConsLoanHistory"></span>
+<img src="images/CLGCO_History.png" alt="Consumer Loans Charge-Offs Historical Data" width="75%" />
+<p class="caption">
+Figure 2.13: Consumer Loans Charge-Offs Historical Data
+</p>
+</div>
+<p><em>Source:</em> Federal Reserve Economic Database (FRED) <a href="https://fred.stlouisfed.org/graph/?g=DvyK">weblink</a></p>
+<div class="figure"><span id="fig:Oth-Cons-Loan-Scenario-proj"></span>
+<img src="images/OCLGCO_scenarioProj.png" alt="Other Consumer Loans Charge-Off Rate Scenario Projectios - All Banks" width="75%" />
+<p class="caption">
+Figure 2.14: Other Consumer Loans Charge-Off Rate Scenario Projectios - All Banks
+</p>
+</div>
+<p><em>Source:</em> FDIC Bank Financial Reports and FFIEC Call Report Data with Visualizations Powered by Microsoft Excel(R)</p>
+<!-- Table \@ref(tab:cars-summary) -->
+<!-- ```{r cars-summary, echo=FALSE} -->
+<!-- library("tidyverse") -->
+<!-- #library("kableExtra") -->
+<!-- cars %>%  -->
+<!--   select(speed, dist) %>% -->
+<!--   summary() %>% -->
+<!--   knitr::kable(booktabs = TRUE,  -->
+<!--   caption = "A summary table of mtcars data") #%>% -->
+<!-- #kable_styling(bootstrap_options = "striped", latex_options = "striped") -->
+<!-- ``` -->
+</div>
+</div>
+<div id="real-world-confounding-factors" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> Real-World Confounding Factors</h2>
+<div id="internal-bank-policy" class="section level3" number="2.5.1">
+<h3><span class="header-section-number">2.5.1</span> Internal Bank Policy</h3>
+<p>Stress test model development efforts can be challenging even with a detailed understanding of real-world events; however, some real-world events cannot be modeled with systematic regularities found in macroeconomic variables. For instance, institution-specific factors should be included into an econometric model if it is <em>expected</em> to impact a portfolio’s risk-profile. These changes could be a single-event confounding factor or a more gradually evolving phenomena. For instance, USAA Federal Savings Bank has gradually expanded membership eligibility during the last 10-15 years and is positioned to be more in line with the general population. Accounting for this mix-shift eligibility change, particularly the recent shift to include military family members during the 2007-2009 recession, is tricky because it <em>may have been a managerial lever used to expand credit to mitigate revenue shortfalls in other product lines</em>. The art of model building then becomes more about narrative building and qualitative considerations, although the inclusion of firm-specific effects in a stress testing model is considered a best practice <a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a>.</p>
+</div>
+<div id="global-forces---government-intervention" class="section level3" number="2.5.2">
+<h3><span class="header-section-number">2.5.2</span> Global Forces - Government Intervention</h3>
+<p>In addition to firm-specific confounding factors that can complicate stress test model development, unanticipated changes or shifts in federal government policy, in the form of fiscal or monetary interventions, can make modeling more complex and require a nuanced approach. For instance, central bank policy over the last 50 years has seen several shifts in priorities that directly impact bond market risk-return dynamics and has spillover effects in other financial markets and perhaps even financial institutions. This topic is fascinating and has so many research directions, but for the purpose of this discussion, let us focus on how it impacts stress testing models. The Federal Reserve has a dual mandate of maintaining price stability and full employment (with an increasing concern for financial market stability) using open market operations to achieve their goals. Traditionally and until recently, the Fed have used the short-term interest rate to coordinate expectations about the future and in some ways, use their superior information access to calm unsteady markets. <a href="#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a>.</p>
+<p>Interest rates are a key instrument at the disposal of central banks around the world in achieving objectives regarding output growth and inflation in the aggregate economy. Central bank policy and views about future economic activity is a profound confounder. Because policy often comes in the form of open market operations, central banks impact financial markets through the <em>expectations</em> channel since asset prices reflect expectations about <em>future</em> economic aggregates. Moreover, market participants have to stand ready to adjust to constantly evolving global markets that means that they never completely trust their model. The permanence of uncertainty could be due to the fear of unanticipated changes in monetary policy, the fear of changes in the growth rate of the aggregate economy, i.e. admitting a stochastic trend in economic growth, or the relative contribution of both. The answer likely depends on feedbacks and linkages between both factors, as central bank authorities interpret the data on macroeconomic aggregates using their own model and make adjustments to policy accordingly. At the same time, general worldwide events are sometimes difficult to incorporate into a parsimonious model. Often, model approximations leave out features that are only later incorporated into analysis. The novel coronavirus (COVID-19) ongoing global pandemic illustrates this point emphatically that for governments and market participants around the world, this is the appropriate stance to take.</p>
+</div>
+<div id="monetary-policy-shifts" class="section level3" number="2.5.3">
+<h3><span class="header-section-number">2.5.3</span> Monetary Policy Shifts</h3>
+<p>Regime shifts and structural breaks have occurred in recent history that needs to be accounted for. The formation of the European Union and the integration of European countries to a common currency is one such event. Another event is the collapse of the Bretton Woods agreement in 1971 that ended the fixed exchange of currencies to US dollars backed by a ‘gold standard’ <a href="#fn18" class="footnote-ref" id="fnref18"><sup>18</sup></a>.</p>
+<p>In addition, I argue that US central bank policy became the most important driver of global financial markets after the end of the Bretton Woods system because dollar valuation fluctuations became a key driver of market volatility. One needs to look no further than the elevated inflations experience during the 1970’s and the Volcker disinflation period in the 1980’s. Evidence of changes in monetary policy can be found in inflation expectations that can be teased out of longer horizon bonds <a href="#fn19" class="footnote-ref" id="fnref19"><sup>19</sup></a>. During this time, Fed Chairman Paul Volcker decided to tighten the money supply, by raising interest rates and by narrowing the definition of money, to curtail the high inflationary expectations during that time. To hold onto long maturity bonds, market participants required additional compensation for holding onto bonds if long-run expectations about inflation particularly for bond markets are not well-defined. The inflation risk-premium has declined considerably since the 1980’s as monetary policy became more steady and rules-based <a href="#fn20" class="footnote-ref" id="fnref20"><sup>20</sup></a>.</p>
+<p>Central banks must also adapt to global financial markets and global economic conditions, particularly when markets panic and sudden sell-offs occur. One needs to look no further than the global financial crisis of 2007-2009 when markets became especially volatile and growth around the world stalled and eventually declined. These events were foretold as early as 2006 when the market expected a decline in growth prospects, were willing to accept low or even negative returns for safety in safe haven assets and effectively steered yield spreads to be negative. <em>Self-fulfilling beliefs</em> were realized and central banks began unconventional monetary policy measures of increasing their balance sheets and buying long-term bonds to achieve their dual mandate. Since the global financial crisis and the coronavirus recession of 2020, we are also seeing government fiscal policy more ready to intervene and stimulate their respective economies. Whatever the motivation for such interventions, a model developer must be aware of the ways in which the underlying data is impacted by internal and external forces that must be taken into account when building a stress testing model.</p>
+</div>
+</div>
+</div>
+<div id="concluding-thoughts" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Concluding Thoughts</h1>
+<p>I provide a sketch of my model development efforts for core deposit growth, loan growth, and loan loss rates; key balance sheet variables for financial institutions. In particular, I highlight an <em>alternative investment</em> (AI) hypothesis that provides a useful lens to interpret the data and inform model development. I use a theory-driven, industry researched approach and provide empirical and qualtitative evidence in defense of the models while clearly outlining areas where the respective models fall short. Further, I use parsimony to my advantage to simplify model development by using only a small set of variables. The development of an integrated suite of models using variables that are naturally prioritized under the AI interpretation of the data reduces the complexity of reality to easy-to-interpret, forward-looking asset prices. This is just one approach, but I believe the process in which I arrive at this set of models can help others in their model development efforts. My discussion of the strengths and limitations are only starting points; I believe there is plenty of room for improvement.</p>
+<p>My motivation for providing this information and research to the public audience is to <em>facilitate improvements in stress test model development</em> in what I view as a missed opportunity; financial institutions likely view stress tests as a regulatory exercise and not a serious tool to create business advantage. No matter how conservative or risk-loving, banks should view this ‘regulatory exercise’ as an opportunity to mine insights about their institution’s data and modeling infrastructure, risk controls, and overall <em>risk-awareness</em> through the models that they employ to find ways to improve their existing operations. Otherwise, these model development (and validation) efforts will be viewed as a business expense that needs to be minimized. That would, in my opinion, be unfortunate <a href="#fn21" class="footnote-ref" id="fnref21"><sup>21</sup></a>.</p>
+<p>Finally, I also provide a sketch of changes in bank-specific, fiscal and monetary policy that must be accounted for in meaningful ways. Otherwise, a large spike in loan and deposit growth rates not to mention a muted and even decline in loan losses during the most recent recession will be interpreted as a model failure. Practically, a model developer cannot be expected to quantitatively capture all of the rich details found in reality. However, an informed discussion of the strengths and limitations of the model <em>in relation to the data</em> is increasingly valuable, especially if stress test model insights are to be leveraged for tactical strategic decision-making and risk management.</p>
+<!-- #render your sweet site.  -->
+<!-- rmarkdown::render_site() -->
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>There is a broad configuration of global supply chains, unprecendented monetary and fiscal stimulus, permanent alteration of the labor market where large portion of adult workforce permanently unemployed and/or no longer participating, among other secular shifts in society.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>For more, see Harvey, James and Kenneth Spong, <strong>“The Decline in Core Deposits: What Can Banks Do?”</strong> <em>FRBKC Financial Industry Perspectives</em>, 2001, pp. 35-48.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>For more, see Clark et. al. <strong>“The Role of Retail Banking In the US Banking Industry: Risk, Return, and Industry Structure,”</strong> <em>FRBNY Economic Policy Review</em>, Dec. 2007, pp. 39-56.<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>The increased emphasis on retail banking can be gleaned by the retail deposit share relative to total deposits found in Figure <a href="#fig:depshare-yieldcurve">1.2</a>.<a href="#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>MRMD suspects that the distortionary effects of central bank policy is driving the negative correlation observed between short-rates and core deposit growth rates.<a href="#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>For more on the underlying macroeconomic variables used to build the models and extract key insights, please visit <a href="https://colab.research.google.com/drive/1nDzlSOw67SOg6gy2wQttmFggfvwWFOSu?usp=sharing" class="uri">https://colab.research.google.com/drive/1nDzlSOw67SOg6gy2wQttmFggfvwWFOSu?usp=sharing</a>.<a href="#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>For more, please visit: <a href="https://fred.stlouisfed.org/">FRED Database</a><a href="#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p>Out-of-sample projections of macroeconomic variables are provided by the Federal Reserve Board of Governors. A more detailed account of the hypothetical scenarios can be found in the following: <a href="https://www.federalreserve.gov/publications/stress-test-scenarios-february-2021.htm">weblink</a><a href="#fnref8" class="footnote-back">↩︎</a></p></li>
+<li id="fn9"><p>For a starter review, see Diebold, Francis X., Glenn D. Rudebusch, and S. Borag’an Aruba, <strong>The macroeconomy and the yield curve: a dynamic latent factor approach</strong>, <em>Journal of Econometrics</em>, 131, 1-2, 2006, pp. 309-338.<a href="#fnref9" class="footnote-back">↩︎</a></p></li>
+<li id="fn10"><p>For more on this, see the <a href="https://fredblog.stlouisfed.org/2020/03/bank-lending-standards-and-loan-growth/?utm_source=series_page&amp;utm_medium=related_content&amp;utm_term=related_resources&amp;utm_campaign=fredblog">FRED Blog</a><a href="#fnref10" class="footnote-back">↩︎</a></p></li>
+<li id="fn11"><p>Actively avoid arbitrary lag length and differences in macroeconomic variables (e.g. 4-quarter lag in the yearly difference in the unemployment rate is not easy to interpret. A sensible model validation team will know that the developer is maximizing the <span class="math inline">\(R^2\)</span> of the model). Although not 100% certain, this is a clear sign that the model is overfit to the most recent recession(s).<a href="#fnref11" class="footnote-back">↩︎</a></p></li>
+<li id="fn12"><p>A detailed look at annual loan loss rates from 2001-2018 using interquartile range (IQR) loan loss time-series visuals found in Figure <a href="#fig:GCO">2.5</a> (All Loans), Figure <a href="#fig:CREGCO">2.6</a> (Commercial Real Estate), Figure <a href="#fig:CCGCO">2.8</a> (Credit Cards), Figure <a href="#fig:OCLGCO">2.11</a> (Other Consumer Loans) reveal meaningful heterogeneity that may prove to be useful in model development efforts.<a href="#fnref12" class="footnote-back">↩︎</a></p></li>
+<li id="fn13"><p>The interquartile range (IQR) loan loss time-series visuals are constructed using a cross-section of financial institutions with quarterly data from Q1 2001 to Q3 2018 aggregated to annual frequency. The interpretation of the IQR range plots is the following: the boundaries of the shaded region represent the interquartile range (25th and 75th percentile of the variable of interest). The line represents the median or 50th percentile of the variable of interest. The peer group consists of the following institutions: American Express, JP Morgan Chase, Bank of America, Citibank, Capital One, Discover, Wells Fargo, US Bank, UnionBank, Barclays Bank, Huntington Bank, PNC Bank, TD Bank, Pacific Western Bank, and USAA Federal Savings Bank. For full disclosure, the calculation of gross charge-off rates does not carefully control for mergers and consolidation of institutions (i.e. the absorption of Washington Mutual into JP Morgan Chase is not reflected in their charge-offs).<a href="#fnref13" class="footnote-back">↩︎</a></p></li>
+<li id="fn14"><p>Other consumer loans are loans to individuals for household, family, and other personal expenditures; includes revolving credit plans other than credit cards and automobile consumer loans)<a href="#fnref14" class="footnote-back">↩︎</a></p></li>
+<li id="fn15"><p>For more details regarding the model I built to characterize bank NCOs, see the following workbook, please visit: <a href="https://colab.research.google.com/drive/1cYs28_51nSPG12hQVU6j8PAg41OG2RcF?usp=sharing" class="uri">https://colab.research.google.com/drive/1cYs28_51nSPG12hQVU6j8PAg41OG2RcF?usp=sharing</a><a href="#fnref15" class="footnote-back">↩︎</a></p></li>
+<li id="fn16"><p>BHCs [bank holding companies] with stronger practices accounted for dynamic changes in their portfolios, such as loan modifications or changes in portfolio risk characteristics, and made appropriate adjustments to data or estimates to compensate for known data limitations…BHCs with weaker practices failed to compensate for data limitations…used a single model for multiple portfolios, without sufficiently adjusting modeling assumptions to capture the unique risk drivers of each portfolio. Source: <a href="https://www.federalreserve.gov/bankinforeg/bcreg20130819a1.pdf">https://www.federalreserve.gov/bankinforeg/bcreg20130819a1.pdf</a><a href="#fnref16" class="footnote-back">↩︎</a></p></li>
+<li id="fn17"><p>Because future macroeconomic conditions cannot be observed, central banks can coordinate expectations about them using the short-term interest rate as well as influence longer-term interest rates as recent experience has shown. Generally speaking, the ability to alter the level of interest rates enables the central bank to achieve its policy objectives of price stability and full employment simply by <em>making things seem better than they may actually turn out to be</em>. In other words, the central bank can effectively alter bond risk prices and affect the valuation of risky securities. My research highlights the empirical evidence of the anticipatory effects of adaptive bond market participants who actively try to anticipate changes in future
+macro-economic conditions that are at least partly attributable to central bank policy. This interpretation of the data has empirical support from a cross-section of industrialized government bond markets. The central bank and the anticipation effect in treasury securities that they elicit is thus an important factor in determining risk-premia in bond markets. Using this hidden factor as a proxy for the market’s expectation of the level of interest rates, I offer an auxiliary hypothesis for the decline in long-term bond yields and the inversion of the yield curve; the market behaved as if it expected a future decline in the level of interest rates. Using this interpretation, I find support of the claim that the conundrum is consistent with a decline in business cycle related risk. To read more, please visit <a href="https://sites.google.com/site/chanrmang/work/research/uncertain-risk-and-return-in-bond-markets/ii">https://sites.google.com/site/chanrmang/work/research/uncertain-risk-and-return-in-bond-markets/ii</a><a href="#fnref17" class="footnote-back">↩︎</a></p></li>
+<li id="fn18"><p>An official account of this important event is given in the following link: <a href="https://history.state.gov/milestones/1969-1976/nixon-shock">https://history.state.gov/milestones/1969-1976/nixon-shock</a><a href="#fnref18" class="footnote-back">↩︎</a></p></li>
+<li id="fn19"><p>For more, please read my research that sheds light on how monetary policy changes impacted the perceptions of risk in global bond markets found <a href="https://sites.google.com/site/chanrmang/work/research/uncertain-risk-and-return-in-bond-markets/ii">https://sites.google.com/site/chanrmang/work/research/uncertain-risk-and-return-in-bond-markets/ii</a>.<a href="#fnref19" class="footnote-back">↩︎</a></p></li>
+<li id="fn20"><p>Interest rate targeting by the U.S. central bank can be described using the Taylor rule where nominal short-term interest rates react more than one-for-one with surprise inflation and less than one-for-one with output surprises relative to their respective inflation and output growth targets.<a href="#fnref20" class="footnote-back">↩︎</a></p></li>
+<li id="fn21"><p>The views expressed here are my own and do not reflect the values, opinions, and beliefs of my current and/or past employers. While I make every effort to ensure that the information I am sharing is accurate and well-researched, I welcome any comments, suggestions, or correction of errors.<a href="#fnref21" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
